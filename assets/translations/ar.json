@@ -1,0 +1,18 @@
+{
+  "adminLogin": "الدخول كمدير",
+  "salesmanLogin": "الدخول كمندوب",
+  "salesmanRegister": "التسجيل كمندوب",
+  "form": {
+    "ok": "موافق",
+    "fieldRequired": "الحقل '{field}' مطلوب",
+    "pleaseEnterValue": "يرجى إدخال {label}",
+    "notIdenticalValues": "{label1} و{label2} يجب أن يتطابقان",
+    "noConnection": "فشل الاتصال، تأكد من توفر إنترنت وحاول مجدداً",
+    "minNCharacters": "يجب أن يحتوي الحقل '{field}' على {min} حروف كحد أدنى"
+  },
+  "username": "اسم المستخدم",
+  "password": "كلمة السر",
+  "confirmPassword": "تأكيد كلمة السر",
+  "loginSuccess": "تم تسجيل الدخول بنجاح",
+  "registerSuccess": "تم التسجيل بنجاح"
+}

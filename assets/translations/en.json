@@ -1,0 +1,18 @@
+{
+  "adminLogin": "Admin log in",
+  "salesmanLogin": "Salesman log in",
+  "salesmanRegister": "Salesman register",
+  "form": {
+    "ok": "Ok",
+    "fieldRequired": "The field '{field}' is required",
+    "pleaseEnterValue": "Please enter {label}",
+    "notIdenticalValues": "{label1} and {label2} must be identical",
+    "noConnection": "Connection failed, check your connection and try again",
+    "minNCharacters": "The {field} must contain at least {min} characters"
+  },
+  "username": "Username",
+  "password": "Password",
+  "confirmPassword": "Confirm password",
+  "loginSuccess": "Log in succeed",
+  "registerSuccess": "Register succeed"
+}
