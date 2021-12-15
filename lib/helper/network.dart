@@ -99,7 +99,8 @@ class Network {
     required String url,
     @required dynamic body,
   }) async {
-    print(body);
+    print('url: ' + url);
+    print('body: ' + jsonEncode(body));
     if (onPreConnect != null) onPreConnect!.call();
     late Response response;
     response = await GetConnect().post(url, body, headers: headers);

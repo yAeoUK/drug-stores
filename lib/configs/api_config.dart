@@ -7,5 +7,8 @@ class ApiConfig {
 
   static const adminLogin = _rootUrl + _api_v1 + _admin + "login.php";
   static const salesmanLogin = _rootUrl + _api_v1 + _salesman + "login.php";
-  static const salesmanRegister = _rootUrl + _api_v1 + _salesman + "register.php";
+  static const salesmanRegister =
+      _rootUrl + _api_v1 + _salesman + "register.php";
+
+  static const adminGetDrugs = _rootUrl + _api_v1 + _admin + "drugs.php";
 }

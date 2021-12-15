@@ -4,11 +4,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 
-class Message extends GetView {
+class FormMessage extends GetView {
   final Function onDismiss;
   final String message;
 
-  Message({required this.message, required this.onDismiss});
+  FormMessage({required this.message, required this.onDismiss});
 
   @override
   Widget build(BuildContext context) {

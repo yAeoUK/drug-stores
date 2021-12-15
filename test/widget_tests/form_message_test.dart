@@ -1,4 +1,4 @@
-import 'package:drug_stores/components/message.dart';
+import 'package:drug_stores/components/form_message.dart';
 import 'package:drug_stores/configs/language_config.dart';
 import 'package:drug_stores/helper/random.dart';
 import 'package:easy_localization/src/public_ext.dart';
@@ -12,7 +12,7 @@ main() {
   });
   testWidgets('test ok button is displayed', (tester) async {
     await tester.pumpWidget(GetMaterialApp(
-      home: Message(
+      home: FormMessage(
         message: randomText!,
         onDismiss: () {},
       ),
@@ -23,7 +23,7 @@ main() {
   });
   testWidgets('test message is displayed', (tester) async {
     await tester.pumpWidget(GetMaterialApp(
-      home: Message(
+      home: FormMessage(
         message: randomText!,
         onDismiss: () {},
       ),
@@ -37,7 +37,7 @@ main() {
     print(randomDecrement);
     int subtraction = randomNumber - randomDecrement;
     await tester.pumpWidget(GetMaterialApp(
-      home: Message(
+      home: FormMessage(
         message: randomText!,
         onDismiss: () => randomNumber -= randomDecrement,
       ),

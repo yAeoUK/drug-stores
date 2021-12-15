@@ -1,5 +1,5 @@
 import 'package:drug_stores/components/form_header.dart';
-import 'package:drug_stores/components/message.dart';
+import 'package:drug_stores/components/form_message.dart';
 import 'package:drug_stores/components/password_field.dart';
 import 'package:drug_stores/components/submit_button.dart';
 import 'package:drug_stores/components/submit_form.dart';
@@ -20,7 +20,7 @@ class AdminLoginTab extends GetView {
   Widget build(BuildContext context) {
     return Obx(() => SubmitForm([
           if (adminLoginController.message() != '')
-            Message(
+            FormMessage(
                 message: adminLoginController.message(),
                 onDismiss: () => adminLoginController.message('')),
           FormHeader(LanguageConfig.adminLogin.tr()),

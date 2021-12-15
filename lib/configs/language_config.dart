@@ -15,4 +15,6 @@ class LanguageConfig {
 
   static final String formNoConnection = 'form.noConnection';
   static final String formOk = 'form.ok';
+
+  static final String itemListEmpty = 'itemList.empty';
 }

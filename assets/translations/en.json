@@ -2,6 +2,8 @@
   "adminLogin": "Admin log in",
   "salesmanLogin": "Salesman log in",
   "salesmanRegister": "Salesman register",
+  "drugQuantity": "Drug quantity: {quantity} piece(s)",
+  "addDrug": "Add a drug",
   "form": {
     "ok": "Ok",
     "fieldRequired": "The field '{field}' is required",
@@ -9,6 +11,9 @@
     "notIdenticalValues": "{label1} and {label2} must be identical",
     "noConnection": "Connection failed, check your connection and try again",
     "minNCharacters": "The {field} must contain at least {min} characters"
+  },
+  "itemList": {
+    "empty": "No items to show"
   },
   "username": "Username",
   "password": "Password",
