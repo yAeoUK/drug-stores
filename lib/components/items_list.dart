@@ -1,6 +1,9 @@
+import 'package:drug_stores/components/form_message.dart';
 import 'package:drug_stores/components/list_message.dart';
 import 'package:drug_stores/components/loading.dart';
 import 'package:drug_stores/components/no_items.dart';
+import 'package:drug_stores/components/submit_button.dart';
+import 'package:drug_stores/configs/language_config.dart';
 import 'package:drug_stores/controllers/items_list_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -36,14 +39,30 @@ class _ItemListLocale extends GetView {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      if (controller.loading()) return Loading();
-      if (controller.message() != '') return ListMessage(controller.message());
-      if (controller.items.isEmpty) return NoItems();
-      return ListView.builder(
-          itemBuilder: itemBuilder,
-          itemCount: controller.items.length,
+      if (controller.items.isEmpty) {
+        if (controller.loading()) return Loading();
+        if (controller.message() != '')
+          return ListMessage(controller.message());
+        return NoItems();
+      }
+      return ListView(
           shrinkWrap: true,
-          physics: AlwaysScrollableScrollPhysics());
+          physics: AlwaysScrollableScrollPhysics(),
+          children: [
+            if (controller.message().isNotEmpty)
+              FormMessage(
+                  message: controller.message(),
+                  onDismiss: () => controller.message('')),
+            ListView.builder(
+                itemBuilder: itemBuilder,
+                itemCount: controller.items.length,
+                shrinkWrap: true,
+                physics: AlwaysScrollableScrollPhysics()),
+            SubmitButton(
+                text: LanguageConfig.itemListLoadMore,
+                loading: controller.loading(),
+                onSubmit: () => controller.loadData(controller.items.length))
+          ]);
     });
   }
 }

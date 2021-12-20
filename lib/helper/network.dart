@@ -35,7 +35,6 @@ class Network {
   };
 
   ///Handle the [response] received from API
-  ///This handling is the same in both [get] and [post] methods
   ///So it is moved to a separate function instead of having the same code in both functions
   Future _handleResponse(Response response) async {
     dynamic body = response.body;
@@ -76,24 +75,6 @@ class Network {
         break;
     }
   }
-
-  // static Future<String> get(
-  //     {required String url}) async {
-  //   String body = '';
-  //   String token = '';
-  //
-  //   try {
-  //
-  //     var response = await http.get(Uri.parse(ApiConfig.baseUrl + url),
-  //     body = response.body;
-  //
-  //     return _handleResponse(response);
-  //   } on FormatException {
-  //     return Future.error(FormatException);
-  //   } catch (e) {
-  //     return Future.error(e);
-  //   }
-  // }
 
   Future post({
     required String url,

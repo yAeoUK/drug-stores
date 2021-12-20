@@ -17,4 +17,8 @@ class LanguageConfig {
   static final String formOk = 'form.ok';
 
   static final String itemListEmpty = 'itemList.empty';
+  static final String itemListLoadMore = 'itemList.loadMore';
+
+  static final String dialogueYes='dialogue.yes';
+  static final String dialogueNo='dialogue.no';
 }

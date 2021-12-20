@@ -13,11 +13,24 @@
     "minNCharacters": "The {field} must contain at least {min} characters"
   },
   "itemList": {
-    "empty": "No items to show"
+    "empty": "No items to show",
+    "loadMore": "Load more"
   },
   "username": "Username",
   "password": "Password",
   "confirmPassword": "Confirm password",
   "loginSuccess": "Log in succeed",
-  "registerSuccess": "Register succeed"
+  "registerSuccess": "Register succeed",
+  "dialogue": {
+    "yes": "Yes",
+    "no": "No"
+  },
+  "drug": {
+    "dialogue": {
+      "delete": {
+        "title": "Confirm drug delete",
+        "content": "Are you sure you want to delete this drug?"
+      }
+    }
+  }
 }

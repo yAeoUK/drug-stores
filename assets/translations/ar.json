@@ -13,11 +13,24 @@
     "minNCharacters": "يجب أن يحتوي الحقل '{field}' على {min} حروف كحد أدنى"
   },
   "itemList": {
-    "empty": "لا يوجد عناصر لعرضها"
+    "empty": "لا يوجد عناصر لعرضها",
+    "loadMore": "Load more"
   },
   "username": "اسم المستخدم",
   "password": "كلمة السر",
   "confirmPassword": "تأكيد كلمة السر",
   "loginSuccess": "تم تسجيل الدخول بنجاح",
-  "registerSuccess": "تم التسجيل بنجاح"
+  "registerSuccess": "تم التسجيل بنجاح",
+  "dialogue": {
+    "yes": "نعم",
+    "no": "لا"
+  },
+  "drug": {
+    "dialogue": {
+      "delete": {
+        "title": "تأكيد حذف الدواء",
+        "content": "هل أنت متأكد أنك تريد حذف هذا الدواء"
+      }
+    }
+  }
 }

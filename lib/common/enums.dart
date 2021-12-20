@@ -1,3 +1,1 @@
-enum ConnectionType { get, post, delete, put, patch }
-enum InputType { text, password }
-
+enum DialogueResponse { yes, no, ok, delete, cancel }

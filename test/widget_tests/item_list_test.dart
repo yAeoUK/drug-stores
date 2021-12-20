@@ -6,38 +6,41 @@ import 'package:drug_stores/controllers/items_list_controller.dart';
 import 'package:drug_stores/helper/random.dart';
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 main() {
-  ItemsListController itemsListController =
-      ItemsListController(Future.delayed(Duration(seconds: 1)));
-  Widget Function(BuildContext, int) itemBuilder =
-      (BuildContext context, int index) => Text(index.toString());
+  ItemsListController? itemsListController;
+  Widget Function(BuildContext, int)? itemBuilder;
+  setUpAll(() {
+    itemsListController = ItemsListController();
+    itemBuilder = (BuildContext context, int index) => Text(index.toString());
+  });
   testWidgets('test message is visible', (WidgetTester tester) async {
-    itemsListController.message(Randoms.getRandomString());
-    itemsListController.items = [];
+    itemsListController!.message(Randoms.getRandomString());
+    itemsListController!.items = [];
     await tester.pumpWidget(GetMaterialApp(
       home: ItemsList(
-        controller: itemsListController,
-        itemBuilder: itemBuilder,
+        controller: itemsListController!,
+        itemBuilder: itemBuilder!,
       ),
     ));
     Finder finder = find.byType(ListMessage);
     expect(finder, findsOneWidget);
 
-    finder = find.text(itemsListController.message());
+    finder = find.text(itemsListController!.message());
     expect(finder, findsOneWidget);
   });
 
   testWidgets('test no items are visible when there is no data',
       (WidgetTester tester) async {
-    itemsListController.message('');
-    itemsListController.items = [];
+    itemsListController!.message('');
+    itemsListController!.items = [];
     await tester.pumpWidget(GetMaterialApp(
       home: ItemsList(
-        controller: itemsListController,
-        itemBuilder: itemBuilder,
+        controller: itemsListController!,
+        itemBuilder: itemBuilder!,
       ),
     ));
     Finder finder = find.byType(NoItems);
@@ -47,22 +50,47 @@ main() {
     expect(finder, findsOneWidget);
   });
 
-  testWidgets('test last item is visible', (WidgetTester tester) async {
-    itemsListController.items = [];
-    int randomNumberOfWidgets = Randoms.getRandomInt(max: Randoms.acceptedInt);
-    for (int c = 0; c < randomNumberOfWidgets; c++) {
-      itemsListController.items.add(Randoms.getRandomString());
-    }
+  testWidgets('test there is a refresh indicator when data is remote',
+      (WidgetTester tester) async {
     await tester.pumpWidget(GetMaterialApp(
       home: ItemsList(
-        controller: itemsListController,
-        itemBuilder: itemBuilder,
+        controller: itemsListController!,
+        itemBuilder: itemBuilder!,
       ),
     ));
-
-    var finder = find.text((randomNumberOfWidgets - 1).toString());
-    await tester.scrollUntilVisible(finder, 500.0,
-        maxScrolls: randomNumberOfWidgets);
+    Finder finder = find.byType(RefreshIndicator);
     expect(finder, findsOneWidget);
   });
+
+  testWidgets('test there is not a refresh indicator when data is local',
+      (WidgetTester tester) async {
+    await tester.pumpWidget(GetMaterialApp(
+      home: ItemsList(
+        controller: itemsListController!,
+        itemBuilder: itemBuilder!,
+        remoteData: false,
+      ),
+    ));
+    Finder finder = find.byType(RefreshIndicator);
+    expect(finder, findsNothing);
+  });
+
+  // testWidgets('test last item is visible', (WidgetTester tester) async {
+  //   itemsListController!.items = [];
+  //   int randomNumberOfWidgets = Randoms.getRandomInt(max: Randoms.acceptedInt);
+  //   for (int c = 0; c < randomNumberOfWidgets; c++) {
+  //     itemsListController!.items.add(Randoms.getRandomString());
+  //   }
+  //   await tester.pumpWidget(GetMaterialApp(
+  //     home: ItemsList(
+  //       controller: itemsListController!,
+  //       itemBuilder: itemBuilder!,
+  //     ),
+  //   ));
+  //
+  //   var finder = find.text((randomNumberOfWidgets - 1).toString());
+  //   await tester.scrollUntilVisible(finder, 10.0,
+  //       maxScrolls: randomNumberOfWidgets);
+  //   expect(finder, findsOneWidget);
+  // });
 }
