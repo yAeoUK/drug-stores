@@ -15,4 +15,6 @@ class ApiConfig {
       _rootUrl + _api_v1 + _admin + _drugs + "index.php";
   static const adminDeleteDrug =
       _rootUrl + _api_v1 + _admin + _drugs + "delete.php";
+  static const adminUpsertDrug =
+      _rootUrl + _api_v1 + _admin + _drugs + "upsert.php";
 }

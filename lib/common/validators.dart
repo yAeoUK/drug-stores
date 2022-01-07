@@ -1,3 +1,4 @@
+import 'package:drug_stores/configs/language_config.dart';
 // ignore: implementation_imports
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
@@ -29,5 +30,14 @@ class Validators {
     if (value.toString() != otherFieldBloc!.value.toString())
       return 'form.notIdenticalValues'
           .tr(namedArgs: {'label1': field, 'label2': otherFieldName!});
+  }
+
+  String? positiveNumber(dynamic value) {
+    if (!RegExp("^[0-9]{1,}\$").hasMatch(value.toString()))
+      return LanguageConfig.mustBePositiveNumber
+          .tr(namedArgs: {'field': field});
+    if (int.parse(value.toString()) < 0)
+      return LanguageConfig.mustBePositiveNumber
+          .tr(namedArgs: {'field': field});
   }
 }

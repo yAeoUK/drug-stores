@@ -76,15 +76,15 @@ class Network {
     }
   }
 
-  Future post({
-    required String url,
-    @required dynamic body,
-  }) async {
+  Future post(
+      {required String url, @required dynamic body, bool json = false}) async {
     print('url: ' + url);
     print('body: ' + jsonEncode(body));
     if (onPreConnect != null) onPreConnect!.call();
     late Response response;
-    response = await GetConnect().post(url, body, headers: headers);
+    var sentHeaders = headers;
+    sentHeaders.addIf(json, 'content-type', 'application/json');
+    response = await GetConnect().post(url, body, headers: sentHeaders);
     if (onPostConnect != null) onPostConnect!.call();
     if (!response.status.connectionError) {
       _handleResponse(response);

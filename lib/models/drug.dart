@@ -1,17 +1,18 @@
+import 'package:drug_stores/abstracts/model_base.dart';
 import 'package:drug_stores/helper/random.dart';
 
-class Drug {
-  int id;
+class Drug implements ModelBase {
+  int? id;
   String? name;
   int? quantity;
 
-  Drug({required this.id, this.name, this.quantity});
+  Drug({this.id, this.name, this.quantity});
 
   factory Drug.fromMap(Map<String, dynamic> map) {
     return new Drug(
-      id: map['id'] as int,
+      id: int.parse(map['id']),
       name: map['name'] as String?,
-      quantity: map['quantity'] as int?,
+      quantity: int.parse(map['quantity']),
     );
   }
 
@@ -24,18 +25,19 @@ class Drug {
     return drugs;
   }
 
+  static Drug generate() {
+    return Drug(
+        id: Randoms.getRandomInt(),
+        name: Randoms.getRandomString(),
+        quantity: Randoms.getRandomInt());
+  }
+
+  @override
   Map<String, dynamic> toMap() {
     return {
       'id': this.id,
       'name': this.name,
       'quantity': this.quantity,
     };
-  }
-
-  static Drug generate() {
-    return Drug(
-        id: Randoms.getRandomInt(),
-        name: Randoms.getRandomString(),
-        quantity: Randoms.getRandomInt());
   }
 }

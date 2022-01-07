@@ -19,6 +19,11 @@ class LanguageConfig {
   static final String itemListEmpty = 'itemList.empty';
   static final String itemListLoadMore = 'itemList.loadMore';
 
-  static final String dialogueYes='dialogue.yes';
-  static final String dialogueNo='dialogue.no';
+  static final String dialogueYes = 'dialogue.yes';
+  static final String dialogueNo = 'dialogue.no';
+
+  static final String drugName = 'drug.name';
+  static final String drugQuantity = 'drug.quantity';
+
+  static final String mustBePositiveNumber = 'form.mustBePositiveNumber';
 }

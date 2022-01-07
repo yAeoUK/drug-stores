@@ -3,18 +3,19 @@
   "salesmanLogin": "الدخول كمندوب",
   "salesmanRegister": "التسجيل كمندوب",
   "drugQuantity": "كمية الدواء: {quantity} قطع(ة)",
-  "addDrug": "إضافة واء",
+  "addDrug": "إضافة دواء",
   "form": {
     "ok": "موافق",
     "fieldRequired": "الحقل '{field}' مطلوب",
     "pleaseEnterValue": "يرجى إدخال {label}",
     "notIdenticalValues": "{label1} و{label2} يجب أن يتطابقان",
     "noConnection": "فشل الاتصال، تأكد من توفر إنترنت وحاول مجدداً",
-    "minNCharacters": "يجب أن يحتوي الحقل '{field}' على {min} حروف كحد أدنى"
+    "minNCharacters": "يجب أن يحتوي الحقل '{field}' على {min} حروف كحد أدنى",
+    "mustBePositiveNumber": "الحقل {field} يجب أن يكون عدداً موجباً"
   },
   "itemList": {
     "empty": "لا يوجد عناصر لعرضها",
-    "loadMore": "Load more"
+    "loadMore": "تحميل المزيد"
   },
   "username": "اسم المستخدم",
   "password": "كلمة السر",
@@ -31,6 +32,13 @@
         "title": "تأكيد حذف الدواء",
         "content": "هل أنت متأكد أنك تريد حذف هذا الدواء"
       }
-    }
+    },
+    "name": "اسم الدواء",
+    "quantity": "كمية الدواء",
+    "createSuccess": "تم إضافة الدواء بنجاح",
+    "editSuccess": "تم تعديل الدواء بنجاح",
+    "deleteSuccess": "تم حذف الدواء بنجاح",
+    "add": "إضافة دواء",
+    "edit": "تعديل معلومات الدواء"
   }
 }

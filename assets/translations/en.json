@@ -3,14 +3,14 @@
   "salesmanLogin": "Salesman log in",
   "salesmanRegister": "Salesman register",
   "drugQuantity": "Drug quantity: {quantity} piece(s)",
-  "addDrug": "Add a drug",
   "form": {
     "ok": "Ok",
     "fieldRequired": "The field '{field}' is required",
     "pleaseEnterValue": "Please enter {label}",
     "notIdenticalValues": "{label1} and {label2} must be identical",
     "noConnection": "Connection failed, check your connection and try again",
-    "minNCharacters": "The {field} must contain at least {min} characters"
+    "minNCharacters": "The {field} must contain at least {min} characters",
+    "mustBePositiveNumber": "The {field} must be a positive number"
   },
   "itemList": {
     "empty": "No items to show",
@@ -31,6 +31,13 @@
         "title": "Confirm drug delete",
         "content": "Are you sure you want to delete this drug?"
       }
-    }
+    },
+    "name": "Drug name",
+    "quantity": "Drug quantity",
+    "createSuccess": "Drug added successfully",
+    "editSuccess": "Drug edited successfully",
+    "deleteSuccess": "Drug deleted successfully",
+    "add": "Add a drug",
+    "edit": "Edit drug"
   }
 }
