@@ -39,5 +39,9 @@
     "deleteSuccess": "Drug deleted successfully",
     "add": "Add a drug",
     "edit": "Edit drug"
-  }
+  },
+  "showDrugs": "Browse drugs",
+  "showOrders": "Show orders",
+  "drugsCount": "Number of drugs {number}",
+  "fullName": "Full name"
 }

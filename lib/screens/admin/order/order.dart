@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-class SalesmanHomeScreen extends GetView {
-  static String routeName = '/salesman/home';
+class AdminOrderScreen extends GetView {
+  static String routeName = '/admin/order';
 
   @override
   Widget build(BuildContext context) {

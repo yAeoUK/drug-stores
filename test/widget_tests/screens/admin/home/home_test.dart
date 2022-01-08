@@ -24,7 +24,7 @@ main() {
     Finder finder = find.byIcon(Icons.add);
     await tester.tap(finder);
     await tester.pumpAndSettle();
-    finder = find.byType(DrugForm);
+    finder = find.byType(AdminDrugForm);
     expect(finder, findsOneWidget);
 
     finder = find.text('addDrug'.tr());

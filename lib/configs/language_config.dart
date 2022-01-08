@@ -26,4 +26,6 @@ class LanguageConfig {
   static final String drugQuantity = 'drug.quantity';
 
   static final String mustBePositiveNumber = 'form.mustBePositiveNumber';
+
+  static final String fullName = 'fullName';
 }

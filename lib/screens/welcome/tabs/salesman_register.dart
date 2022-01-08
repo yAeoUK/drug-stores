@@ -6,10 +6,10 @@ import 'package:drug_stores/components/submit_form.dart';
 import 'package:drug_stores/components/username_field.dart';
 import 'package:drug_stores/configs/language_config.dart';
 import 'package:drug_stores/controllers/salesman_register_controller.dart';
-
 // ignore: implementation_imports
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 
@@ -25,6 +25,12 @@ class SalesmanRegisterTab extends GetView {
                 message: salesmanRegisterController.message(),
                 onDismiss: () => salesmanRegisterController.message('')),
           FormHeader(LanguageConfig.salesmanRegister.tr()),
+          TextFieldBlocBuilder(
+            textFieldBloc: salesmanRegisterController.fullName,
+            decoration: InputDecoration(
+                labelText: LanguageConfig.fullName.tr(),
+                prefixIcon: Icon(Icons.account_box)),
+          ),
           UsernameField(controller: salesmanRegisterController.username),
           PasswordField(controller: salesmanRegisterController.password),
           PasswordField(

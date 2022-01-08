@@ -11,7 +11,7 @@ import 'tabs/salesman_login.dart';
 import 'tabs/salesman_register.dart';
 
 class WelcomeScreen extends GetView {
-  static String routeName = 'welcome';
+  static String routeName = '/welcome';
 
   @override
   Widget build(BuildContext context) {

@@ -5,6 +5,7 @@ class ApiConfig {
   static const _admin = 'admin/';
   static const _salesman = 'salesman/';
   static const _drugs = 'drugs/';
+  static const _orders = 'orders/';
 
   static const adminLogin = _rootUrl + _api_v1 + _admin + "login.php";
   static const salesmanLogin = _rootUrl + _api_v1 + _salesman + "login.php";
@@ -17,4 +18,7 @@ class ApiConfig {
       _rootUrl + _api_v1 + _admin + _drugs + "delete.php";
   static const adminUpsertDrug =
       _rootUrl + _api_v1 + _admin + _drugs + "upsert.php";
+
+  static const adminGetOrders =
+      _rootUrl + _api_v1 + _admin + _orders + "index.php";
 }

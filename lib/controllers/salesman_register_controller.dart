@@ -10,7 +10,6 @@ import 'package:drug_stores/controllers/username_controller.dart';
 import 'package:drug_stores/helper/network.dart';
 import 'package:drug_stores/models/failure_response.dart';
 import 'package:drug_stores/screens/salesman/home/home.dart';
-
 // ignore: implementation_imports
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
@@ -29,6 +28,8 @@ class SalesmanRegisterController extends FormController {
           .minNCharacters,
     ],
   );
+  final TextFieldBloc fullName = TextFieldBloc(
+      validators: [Validators(field: LanguageConfig.fullName.tr()).required]);
 
   SalesmanRegisterController() {
     print('initialising salesman register controller');
@@ -39,12 +40,16 @@ class SalesmanRegisterController extends FormController {
               otherFieldBloc: password)
           .identical
     ]);
-    addFieldBlocs(fieldBlocs: [username, password, confirmPassword]);
+    addFieldBlocs(fieldBlocs: [username, password, confirmPassword, fullName]);
   }
 
-  Future submitData({required String? username, required String? password}) {
-    print('username: ' + username!);
-    print('password: ' + password!);
+  Future submitData(
+      {required String username,
+      required String password,
+      required String fullName}) {
+    print('username: ' + username);
+    print('password: ' + password);
+    print('fullName: ' + fullName);
     return Network(onConnectionSucceed: (body) {
       print('salesman register connection succeed');
       super.onConnectionSucceed();
@@ -69,14 +74,19 @@ class SalesmanRegisterController extends FormController {
     }, onConnectionFailed: () {
       super.onConnectionFailed();
       print('salesman register connection failed');
-    }).post(
-        url: ApiConfig.salesmanRegister,
-        body: {'username': username, 'password': password});
+    }).post(url: ApiConfig.salesmanRegister, body: {
+      'username': username,
+      'password': password,
+      'fullName': fullName
+    });
   }
 
   @override
   void onSubmitting() {
     print('salesman controller submit');
-    submitData(username: username.value, password: password.value);
+    submitData(
+        username: username.value!,
+        password: password.value!,
+        fullName: fullName.value!);
   }
 }

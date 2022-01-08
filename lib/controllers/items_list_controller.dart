@@ -2,10 +2,15 @@ import 'dart:convert';
 
 import 'package:drug_stores/abstracts/ItemListControllerBase.dart';
 import 'package:drug_stores/abstracts/model_base.dart';
+import 'package:drug_stores/configs/app_config.dart';
+import 'package:drug_stores/configs/language_config.dart';
+import 'package:drug_stores/helper/network.dart';
+// ignore: implementation_imports
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
 
-class ItemsListController<T> implements ItemListControllerBase {
+abstract class ItemsListController<T> implements ItemListControllerBase {
   RxBool loading = false.obs;
   List items = [].obs;
   RxString message = ''.obs;
@@ -16,8 +21,15 @@ class ItemsListController<T> implements ItemListControllerBase {
   RxBool loadMoreVisibility = true.obs;
 
   final Widget Function(BuildContext, int) itemBuilder;
+  bool remote;
+  String plural;
+  String indexUrl;
 
-  ItemsListController(this.itemBuilder);
+  ItemsListController(
+      {required this.itemBuilder,
+      this.remote = true,
+      required this.plural,
+      required this.indexUrl});
 
   Future init({int offset = 0, bool refresh = false}) async {
     if (refresh) loadMoreVisibility(refresh);
@@ -62,8 +74,35 @@ class ItemsListController<T> implements ItemListControllerBase {
     itemsLoading.removeAt(index);
   }
 
-  @override
-  Future? loadData({int offset = 0, bool refresh = false}) => null;
+  Future? loadData({int offset = 0, bool refresh = false}) {
+    if (remote) return _getRemoteData(offset: offset, refresh: refresh);
+  }
+
+  Future? _getRemoteData({required int offset, required bool refresh}) {
+    return Network(
+        onConnectionSucceed: (body) {
+          if (refresh) {
+            items.clear();
+            itemsLoading.clear();
+            itemsMessage.clear();
+          }
+          var newItems = body[plural];
+          int oldCount = itemsLoading.length;
+          for (int c = 0; c < newItems.length; c++) {
+            itemsLoading.add(false);
+            itemsMessage.add('');
+          }
+          items.addAll(newItems);
+          if (items.length - oldCount < AppConfig.listItemsInitialCount)
+            loadMoreVisibility(false);
+        },
+        onMessageReceived: (failureResponse) =>
+            message(failureResponse.content),
+        onConnectionFailed: () =>
+            message(LanguageConfig.formNoConnection.tr())).post(
+        url: indexUrl,
+        body: {'limit': AppConfig.listItemsInitialCount, 'offset': offset});
+  }
 
   @override
   Future? addItem(item) {

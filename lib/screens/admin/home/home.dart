@@ -1,25 +1,38 @@
-import 'package:drug_stores/components/items_list.dart';
-import 'package:drug_stores/controllers/admin_drugs_list_controller.dart';
+import 'package:drug_stores/screens/admin/drug_list/drug_list.dart';
+
+// ignore: implementation_imports
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_instance/src/extension_instance.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
-import 'package:get/route_manager.dart';
 
 class AdminHomeScreen extends GetView {
-  static String routeName = 'admin/home';
-  final AdminDrugsListController adminDrugsListController =
-      Get.put(AdminDrugsListController());
+  static String routeName = '/admin/home';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ItemsList(
-        controller: adminDrugsListController,
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => adminDrugsListController.addDrug(),
-        child: Icon(Icons.add),
+      body: Column(
+        children: [
+          Expanded(
+            child: Center(
+              child: ElevatedButton(
+                child: Text('showDrugs'.tr()),
+                onPressed: () => Get.toNamed(AdminDrugList.routeName),
+              ),
+            ),
+          ),
+          Divider(),
+          Expanded(
+            child: Center(
+              child: ElevatedButton(
+                child: Text('showOrders'.tr()),
+                onPressed: () => Get.toNamed(AdminDrugList.routeName),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

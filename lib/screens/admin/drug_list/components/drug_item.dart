@@ -14,13 +14,12 @@ class DrugItem extends GetView {
 
   DrugItem({required this.index});
 
-  final AdminDrugsListController adminDrugsListController =
-      Get.find<AdminDrugsListController>();
+  final AdminDrugsListController adminDrugsListController = Get.find();
 
   @override
   Widget build(BuildContext context) {
     String message = adminDrugsListController.itemsMessage[index];
-    Drug drug = adminDrugsListController.items[index];
+    Drug drug = Drug.fromMap(adminDrugsListController.items[index]);
     return Obx(() {
       return ListTile(
           leading: ImageIcon(AssetImage("assets/icons/pill.png")),
