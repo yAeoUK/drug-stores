@@ -44,5 +44,7 @@
   "showDrugs": "تصفح الأدوية",
   "showOrders": "عرض الطلبات",
   "drugsCount": "عدد الطلبات {number} طلب",
-  "fullName": "الاسم الكامل"
+  "fullName": "الاسم الكامل",
+  "addOrder": "إضافة طلبية",
+  "showMyOrders": "سجل طلبياتي"
 }

@@ -54,7 +54,7 @@ class Network {
     }
     switch (int.parse(body['result'])) {
       case 0:
-        onConnectionSucceed(body).call();
+        onConnectionSucceed(body);
         break;
       case 1:
         if (onMessageReceived != null) {

@@ -7,7 +7,7 @@ import 'package:drug_stores/helper/network.dart';
 import 'package:drug_stores/models/drug.dart';
 import 'package:drug_stores/models/failure_response.dart';
 import 'package:drug_stores/screens/admin/drug_form/drug_form.dart';
-import 'package:drug_stores/screens/admin/drug_list/components/drug_item.dart';
+
 // ignore: implementation_imports
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
@@ -15,10 +15,12 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/route_manager.dart';
 
-class AdminDrugsListController extends ItemsListController<Drug> {
-  AdminDrugsListController()
+import '../screens/admin/drug_list/components/drug_item.dart';
+
+class AdminDrugListController extends ItemsListController<Drug> {
+  AdminDrugListController()
       : super(
-            itemBuilder: (context, index) => DrugItem(index: index),
+            itemBuilder: (context, index) => AdminDrugItem(index: index),
             plural: 'drugs',
             indexUrl: ApiConfig.adminGetDrugs);
 

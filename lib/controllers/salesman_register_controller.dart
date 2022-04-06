@@ -85,8 +85,8 @@ class SalesmanRegisterController extends FormController {
   void onSubmitting() {
     print('salesman controller submit');
     submitData(
-        username: username.value!,
-        password: password.value!,
-        fullName: fullName.value!);
+        username: username.value,
+        password: password.value,
+        fullName: fullName.value);
   }
 }

@@ -2,8 +2,6 @@ import 'package:drug_stores/components/items_list.dart';
 import 'package:drug_stores/controllers/admin_order_list_controller.dart';
 import 'package:flutter/material.dart';
 
-// ignore: implementation_imports
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 
 class AdminOrderList extends GetView {

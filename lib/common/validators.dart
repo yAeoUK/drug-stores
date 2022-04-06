@@ -18,18 +18,21 @@ class Validators {
   String? required(dynamic value) {
     if (value == null || value == '')
       return 'form.fieldRequired'.tr(namedArgs: {'field': field});
+    return null;
   }
 
   String? minNCharacters(dynamic value) {
     if (value.length < minimumCharacters)
       return 'form.minNCharacters'.tr(
           namedArgs: {'field': field, 'min': minimumCharacters!.toString()});
+    return null;
   }
 
   String? identical(dynamic value) {
     if (value.toString() != otherFieldBloc!.value.toString())
       return 'form.notIdenticalValues'
           .tr(namedArgs: {'label1': field, 'label2': otherFieldName!});
+    return null;
   }
 
   String? positiveNumber(dynamic value) {
@@ -39,5 +42,6 @@ class Validators {
     if (int.parse(value.toString()) < 0)
       return LanguageConfig.mustBePositiveNumber
           .tr(namedArgs: {'field': field});
+    return null;
   }
 }

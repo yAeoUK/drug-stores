@@ -43,5 +43,7 @@
   "showDrugs": "Browse drugs",
   "showOrders": "Show orders",
   "drugsCount": "Number of drugs {number}",
-  "fullName": "Full name"
+  "fullName": "Full name",
+  "addOrder": "Add an order",
+  "showMyOrders": "My orders"
 }

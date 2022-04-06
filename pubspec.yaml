@@ -42,7 +42,7 @@ dependencies:
   easy_localization: ^3.0.0
 
   # This package is used to handle dynamic fields
-  flutter_form_bloc: ^0.20.0
+  flutter_form_bloc: ^0.30.1
 
   # This package is used to get device info
   device_info_plus: ^3.1.1

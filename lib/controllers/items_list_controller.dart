@@ -1,7 +1,4 @@
-import 'dart:convert';
-
 import 'package:drug_stores/abstracts/ItemListControllerBase.dart';
-import 'package:drug_stores/abstracts/model_base.dart';
 import 'package:drug_stores/configs/app_config.dart';
 import 'package:drug_stores/configs/language_config.dart';
 import 'package:drug_stores/helper/network.dart';
@@ -12,7 +9,7 @@ import 'package:get/get_rx/src/rx_types/rx_types.dart';
 
 abstract class ItemsListController<T> implements ItemListControllerBase {
   RxBool loading = false.obs;
-  List items = [].obs;
+  RxList items = [].obs;
   RxString message = ''.obs;
 
   RxList itemsLoading = [].obs;
@@ -62,12 +59,12 @@ abstract class ItemsListController<T> implements ItemListControllerBase {
 
   int? getItemIndex(int id) {
     for (int c = 0; c < items.length; c++)
-      if (items[c].id.toString() == id.toString()) return c;
+      if (items[c]['id'].toString() == id.toString()) return c;
     return null;
   }
 
   @override
-  Future? deleteItem(int id) {
+  void deleteItem(int id) {
     int? index = getItemIndex(id);
     items.removeAt(index!);
     itemsMessage.removeAt(index);
@@ -76,6 +73,7 @@ abstract class ItemsListController<T> implements ItemListControllerBase {
 
   Future? loadData({int offset = 0, bool refresh = false}) {
     if (remote) return _getRemoteData(offset: offset, refresh: refresh);
+    return null;
   }
 
   Future? _getRemoteData({required int offset, required bool refresh}) {
@@ -105,25 +103,23 @@ abstract class ItemsListController<T> implements ItemListControllerBase {
   }
 
   @override
-  Future? addItem(item) {
-    if (item is T) {
-      if (items.length > 0) {
-        items.insert(0, item);
-        itemsMessage.insert(0, '');
-        itemsLoading.insert(0, false);
-      } else {
-        items.add(item);
-        itemsMessage.add('');
-        itemsLoading.add(false);
-      }
+  void addItem(item) {
+    // if (item is T) {
+    if (items.length > 0) {
+      items.insert(0, item);
+      itemsMessage.insert(0, '');
+      itemsLoading.insert(0, false);
+    } else {
+      items.add(item);
+      itemsMessage.add('');
+      itemsLoading.add(false);
     }
+    // }
   }
 
   @override
-  Future? editItem(item) {
-    if (item is T && item is ModelBase) {
-      int index = getItemIndex(jsonDecode(jsonEncode(item.toMap()))['id'])!;
-      items[index] = item;
-    }
+  void editItem(item) {
+    int index = getItemIndex(int.parse(item['id']))!;
+    items[index] = item;
   }
 }

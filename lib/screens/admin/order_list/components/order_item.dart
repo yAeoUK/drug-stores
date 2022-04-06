@@ -5,7 +5,6 @@ import 'package:drug_stores/screens/admin/order_list/order_list.dart';
 // ignore: implementation_imports
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'package:get/instance_manager.dart';
@@ -22,7 +21,7 @@ class OrderItem extends GetView {
     Order order = Order.fromMap(adminOrdersListController.items[index]);
     return ListTile(
       leading: Icon(Icons.person),
-      title: Text(order.salesman.name),
+      title: Text(order.salesmanName),
       subtitle: Text(
           'drugsCount'.tr(namedArgs: {'number': order.drugsCount.toString()})),
       trailing: Icon(Icons.arrow_back_ios),

@@ -21,4 +21,7 @@ class ApiConfig {
 
   static const adminGetOrders =
       _rootUrl + _api_v1 + _admin + _orders + "index.php";
+
+  static const salesmanGetDrugs =
+      _rootUrl + _api_v1 + _salesman + _drugs + "index.php";
 }

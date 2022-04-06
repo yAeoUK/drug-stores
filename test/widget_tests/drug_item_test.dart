@@ -1,5 +1,5 @@
 import 'package:drug_stores/common/routes.dart';
-import 'package:drug_stores/controllers/admin_drugs_list_controller.dart';
+import 'package:drug_stores/controllers/admin_drug_list_controller.dart';
 import 'package:drug_stores/dialogues/yes_no_dialogue.dart';
 import 'package:drug_stores/helper/random.dart';
 import 'package:drug_stores/models/drug.dart';
@@ -15,7 +15,7 @@ main() {
   Drug? drug;
   setUpAll(() {
     drug = Drug.generate();
-    Get.put(AdminDrugsListController());
+    Get.put(AdminDrugListController());
   });
   testWidgets('test drug name is visible', (tester) async {
     await tester.pumpWidget(GetMaterialApp(
@@ -42,8 +42,8 @@ main() {
 
   testWidgets('test message is visible when there is a message',
       (tester) async {
-    Get.delete<AdminDrugsListController>();
-    AdminDrugsListController itemsListController = AdminDrugsListController();
+    Get.delete<AdminDrugListController>();
+    AdminDrugListController itemsListController = AdminDrugListController();
     itemsListController.items = [drug!];
     String randomMessage = Randoms.getRandomString();
     itemsListController.itemsMessage = [randomMessage];

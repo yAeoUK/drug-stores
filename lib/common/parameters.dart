@@ -1,8 +1,6 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import 'size_config.dart';
-
 
 const SUPPORTED_LOCALES = [
   Locale('en', ''),
@@ -24,9 +22,7 @@ const kTextColor = Color(0xFF757575);
 
 const kAnimationDuration = Duration(milliseconds: 200);
 
-
-List<Map<String, String>> getCategories(BuildContext context) =>
-    [
+List<Map<String, String>> getCategories(BuildContext context) => [
       {'icon': 'assets/icons/Flash Icon.svg', 'text': 'Flash Deal'},
       {'icon': 'assets/icons/Bill Icon.svg', 'text': 'Bill'},
       {'icon': 'assets/icons/Game Icon.svg', 'text': 'Game'},
@@ -36,7 +32,7 @@ List<Map<String, String>> getCategories(BuildContext context) =>
 
 // Form Error
 final RegExp emailValidatorRegExp =
-RegExp(r'^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+');
+    RegExp(r'^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+');
 
 final headingStyle = TextStyle(
   fontSize: getProportionateScreenWidth(28),
@@ -47,7 +43,7 @@ final headingStyle = TextStyle(
 
 final otpInputDecoration = InputDecoration(
   contentPadding:
-  EdgeInsets.symmetric(vertical: getProportionateScreenWidth(15)),
+      EdgeInsets.symmetric(vertical: getProportionateScreenWidth(15)),
   border: outlineInputBorder(),
   focusedBorder: outlineInputBorder(),
   enabledBorder: outlineInputBorder(),

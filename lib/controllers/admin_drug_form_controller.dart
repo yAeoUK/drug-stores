@@ -18,14 +18,14 @@ import 'package:get/route_manager.dart';
 class AdminDrugFormController extends FormController {
   TextFieldBloc? drugName, drugQuantity;
 
-  late List<SingleFieldBloc> fields;
+  late List<FieldBloc> fields;
   late Drug drug;
 
   AdminDrugFormController() {
     create = !Get.isRegistered<Drug>();
     if (!create) drug = Get.find();
     drugName = TextFieldBloc(
-        initialValue: !create ? drug.name : '',
+        initialValue: !create ? drug.name! : '',
         validators: [Validators(field: LanguageConfig.drugName.tr()).required]);
     drugQuantity = TextFieldBloc(
         initialValue: !create ? drug.quantity.toString() : '',
@@ -48,7 +48,7 @@ class AdminDrugFormController extends FormController {
         gravity: ToastGravity.CENTER,
         timeInSecForIosWeb: 1,
       );
-      Get.back(result: Drug.fromMap(body["drug"]));
+      Get.back(result: body["drug"]);
     }, onMessageReceived: (FailureResponse response) {
       super.onMessageReceived(response.content);
       print(
@@ -70,8 +70,8 @@ class AdminDrugFormController extends FormController {
 
   void send() {
     print('admin drug form controller submit');
-    for (SingleFieldBloc field in fields) {
-      if (field.state.hasError) return;
+    for (FieldBloc field in fields) {
+      if (!field.state.isValid) return;
     }
     if (create)
       drug = Drug(name: drugName!.value, quantity: drugQuantity!.valueToInt);
