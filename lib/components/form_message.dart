@@ -11,18 +11,20 @@ class FormMessage extends GetView {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: MaterialBanner(
-        actions: [
-          OutlinedButton(
-            onPressed: () => onDismiss.call(),
-            child: Text('form.ok').tr(),
-          )
-        ],
-        content: Text(
-          message,
+    if (message.isNotEmpty)
+      return SingleChildScrollView(
+        child: MaterialBanner(
+          actions: [
+            OutlinedButton(
+              onPressed: () => onDismiss.call(),
+              child: Text('form.ok').tr(),
+            )
+          ],
+          content: Text(
+            message,
+          ),
         ),
-      ),
-    );
+      );
+    return SizedBox();
   }
 }

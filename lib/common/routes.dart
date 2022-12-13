@@ -4,7 +4,8 @@ import 'package:drug_stores/screens/admin/home/home.dart';
 import 'package:drug_stores/screens/admin/order/order.dart';
 import 'package:drug_stores/screens/admin/order_list/order_list.dart';
 import 'package:drug_stores/screens/salesman/home/home.dart';
-import 'package:drug_stores/screens/salesman/drug_list/drug_list.dart';
+import 'package:drug_stores/screens/salesman/order_form/order_form.dart';
+import 'package:drug_stores/screens/salesman/order_list/order_list.dart';
 import 'package:drug_stores/screens/welcome/welcome.dart';
 import 'package:flutter/widgets.dart';
 
@@ -19,5 +20,7 @@ final Map<String, WidgetBuilder> routes = {
   AdminDrugForm.editRouteName: (context) => AdminDrugForm(),
   AdminOrderScreen.routeName: (context) => AdminOrderScreen(),
   SalesmanHomeScreen.routeName: (context) => SalesmanHomeScreen(),
-  SalesmanDrugList.rootName: (context) => SalesmanDrugList()
+  SalesmanOrderList.rootName: (context) => SalesmanOrderList(),
+  SalesmanOrderForm.rootName: (context) => SalesmanOrderForm(),
+  SalesmanOrderForm.editRouteName: (context) => SalesmanOrderForm()
 };

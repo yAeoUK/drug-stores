@@ -1,4 +1,6 @@
-import 'package:drug_stores/abstracts/user.dart';
+import 'dart:convert';
+
+import 'package:drug_stores/abstracts/user_base.dart';
 import 'package:drug_stores/helper/shared_preferences_helper.dart';
 
 class SalesmanController implements UserBase {
@@ -8,5 +10,17 @@ class SalesmanController implements UserBase {
   bool isLoggedIn() => SharedPreferencesHelper.hasKey(_salesman);
 
   @override
-  Future login(String text) => SharedPreferencesHelper.set(_salesman, text);
+  Future login(Map object) =>
+      SharedPreferencesHelper.set(_salesman, jsonEncode(object));
+
+  @override
+  Future logout() => SharedPreferencesHelper.remove(_salesman);
+
+  @override
+  int? getId() {
+    if (isLoggedIn())
+      return int.parse(
+          jsonDecode(SharedPreferencesHelper.get(_salesman))['id']);
+    return null;
+  }
 }

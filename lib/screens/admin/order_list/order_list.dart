@@ -7,11 +7,11 @@ import 'package:get/get.dart';
 class AdminOrderList extends GetView {
   static String routeName = '/admin/orders';
 
-  final AdminOrdersListController adminOrdersListController =
-      Get.put(AdminOrdersListController());
-
   @override
   Widget build(BuildContext context) {
+    Get.delete<AdminOrdersListController>();
+    final AdminOrdersListController adminOrdersListController =
+        Get.put(AdminOrdersListController());
     return Scaffold(
       body: ItemsList(
         controller: adminOrdersListController,

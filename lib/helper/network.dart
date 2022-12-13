@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:drug_stores/controllers/admin_controller.dart';
+import 'package:drug_stores/controllers/salesman_controller.dart';
 import 'package:drug_stores/helper/device_info.dart';
 import 'package:drug_stores/models/failure_response.dart';
 import 'package:flutter/cupertino.dart';
@@ -30,9 +32,14 @@ class Network {
     this.onMessageReceived,
   });
 
-  static Map<String, String> headers = {
-    'device-info': DeviceInfoHelper.getDeviceInfo()
-  };
+  static Map<String, String> getheaders() => {
+        'device-info': DeviceInfoHelper.getDeviceInfo(),
+        'user-id': Get.find<SalesmanController>().isLoggedIn()
+            ? Get.find<SalesmanController>().getId().toString()
+            : Get.find<AdminController>().isLoggedIn()
+                ? Get.find<AdminController>().getId().toString()
+                : ''
+      };
 
   ///Handle the [response] received from API
   ///So it is moved to a separate function instead of having the same code in both functions
@@ -48,7 +55,7 @@ class Network {
         onMessageReceived!(FailureResponse(
           type: MessageType.error,
           content: response.bodyString!,
-        )).call();
+        ));
       }
       return;
     }
@@ -82,7 +89,7 @@ class Network {
     print('body: ' + jsonEncode(body));
     if (onPreConnect != null) onPreConnect!.call();
     late Response response;
-    var sentHeaders = headers;
+    var sentHeaders = getheaders();
     sentHeaders.addIf(json, 'content-type', 'application/json');
     response = await GetConnect().post(url, body, headers: sentHeaders);
     if (onPostConnect != null) onPostConnect!.call();

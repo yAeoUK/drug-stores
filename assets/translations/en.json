@@ -2,7 +2,10 @@
   "adminLogin": "Admin log in",
   "salesmanLogin": "Salesman log in",
   "salesmanRegister": "Salesman register",
+  "confirmLogout": "Confirm logout",
+  "confirmLogoutExplanation": "Are you sure you want to logout?",
   "drugQuantity": "Drug quantity: {quantity} piece(s)",
+  "addDrug": "Add a drug",
   "form": {
     "ok": "Ok",
     "fieldRequired": "The field '{field}' is required",
@@ -10,7 +13,8 @@
     "notIdenticalValues": "{label1} and {label2} must be identical",
     "noConnection": "Connection failed, check your connection and try again",
     "minNCharacters": "The {field} must contain at least {min} characters",
-    "mustBePositiveNumber": "The {field} must be a positive number"
+    "mustBePositiveNumber": "The {field} must be a positive number",
+    "maxValue": "The value '{field}' should not exceed {max}"
   },
   "itemList": {
     "empty": "No items to show",
@@ -34,9 +38,9 @@
     },
     "name": "Drug name",
     "quantity": "Drug quantity",
-    "createSuccess": "Drug added successfully",
-    "editSuccess": "Drug edited successfully",
-    "deleteSuccess": "Drug deleted successfully",
+    "createSuccess": "Drug is added successfully",
+    "editSuccess": "Drug is edited successfully",
+    "deleteSuccess": "Drug is deleted successfully",
     "add": "Add a drug",
     "edit": "Edit drug"
   },
@@ -44,6 +48,27 @@
   "showOrders": "Show orders",
   "drugsCount": "Number of drugs {number}",
   "fullName": "Full name",
-  "addOrder": "Add an order",
-  "showMyOrders": "My orders"
+  "showMyOrders": "My orders",
+  "order": {
+    "dialogue": {
+      "delete": {
+        "title": "Confirm order delete",
+        "content": "Are you sure you want to delete this order?"
+      }
+    },
+    "add": "Add an order",
+    "edit": "Edit an order",
+    "deleteSuccess": "Order is deleted successfully",
+    "addForm": {
+      "drugStore": "Drug store",
+      "chooseDrugStore": "Choose drug store",
+      "addDrug": "Add a drug",
+      "drugName": "Drug name",
+      "chooseDrug": "Choose a drug",
+      "drugQuantity": "Drug quantity",
+      "enterDrugQuantity": "Enter drug quantity",
+      "createSuccess": "Order is created successfully",
+      "editSuccess": "Order is edited successfully"
+    }
+  }
 }

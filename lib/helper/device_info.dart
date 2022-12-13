@@ -62,7 +62,7 @@ class DeviceInfoHelper {
       buildModel: androidDeviceInfo.model,
       androidAPI: androidDeviceInfo.version.sdkInt.toString(),
       rooted: isRooted ? '1' : '0',
-      isEmulator: androidDeviceInfo.isPhysicalDevice! ? '0' : '1',
+      isEmulator: androidDeviceInfo.isPhysicalDevice ? '0' : '1',
       appVersionName: packageInfo.version,
       appVersionCode: packageInfo.buildNumber,
       appPackageName: packageInfo.packageName,

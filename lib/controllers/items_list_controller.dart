@@ -119,7 +119,10 @@ abstract class ItemsListController<T> implements ItemListControllerBase {
 
   @override
   void editItem(item) {
-    int index = getItemIndex(int.parse(item['id']))!;
-    items[index] = item;
+    /// [item] is null when the edit screen is closed without editting an item successfully
+    if (item != null) {
+      int index = getItemIndex(int.parse(item['id']))!;
+      items[index] = item;
+    }
   }
 }

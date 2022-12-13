@@ -22,6 +22,15 @@ class ApiConfig {
   static const adminGetOrders =
       _rootUrl + _api_v1 + _admin + _orders + "index.php";
 
-  static const salesmanGetDrugs =
-      _rootUrl + _api_v1 + _salesman + _drugs + "index.php";
+  static const salesmanGetOrders =
+      _rootUrl + _api_v1 + _salesman + _orders + "index.php";
+
+  static const salesmanAddOrderHelper =
+      _rootUrl + _api_v1 + _salesman + _orders + "add_helper.php";
+
+  static const salesmanUpsertOrder =
+      _rootUrl + _api_v1 + _salesman + _orders + "upsert.php";
+
+  static const salesmanDeleteOrder =
+      _rootUrl + _api_v1 + _salesman + _orders + "delete.php";
 }

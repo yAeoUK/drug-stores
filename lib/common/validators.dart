@@ -6,6 +6,7 @@ import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 class Validators {
   String field;
   int? minimumCharacters;
+  int? maximumValue;
   String? otherFieldName;
   TextFieldBloc? otherFieldBloc;
 
@@ -13,6 +14,7 @@ class Validators {
       {required this.field,
       this.minimumCharacters,
       this.otherFieldName,
+      this.maximumValue,
       this.otherFieldBloc});
 
   String? required(dynamic value) {
@@ -25,6 +27,13 @@ class Validators {
     if (value.length < minimumCharacters)
       return 'form.minNCharacters'.tr(
           namedArgs: {'field': field, 'min': minimumCharacters!.toString()});
+    return null;
+  }
+
+  String? maxValue(dynamic value) {
+    if (int.parse(value) > maximumValue!)
+      return 'form.maxValue'
+          .tr(namedArgs: {'field': field, 'max': maximumValue!.toString()});
     return null;
   }
 

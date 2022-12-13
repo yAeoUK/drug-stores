@@ -60,7 +60,7 @@ class SalesmanRegisterController extends FormController {
         timeInSecForIosWeb: 1,
       );
       SalesmanController salesmanController = Get.find();
-      salesmanController.login(body['salesman'].toString());
+      salesmanController.login(body['salesman']);
       Get.offAndToNamed(SalesmanHomeScreen.routeName);
     }, onMessageReceived: (FailureResponse response) {
       super.onMessageReceived(response.content);

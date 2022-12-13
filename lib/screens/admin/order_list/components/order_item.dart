@@ -21,7 +21,7 @@ class OrderItem extends GetView {
     Order order = Order.fromMap(adminOrdersListController.items[index]);
     return ListTile(
       leading: Icon(Icons.person),
-      title: Text(order.salesmanName),
+      title: Text(order.salesmanName!),
       subtitle: Text(
           'drugsCount'.tr(namedArgs: {'number': order.drugsCount.toString()})),
       trailing: Icon(Icons.arrow_back_ios),
