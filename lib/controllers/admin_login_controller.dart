@@ -1,17 +1,18 @@
 import 'dart:convert';
 
 import 'package:drug_stores/configs/api_config.dart';
+import 'package:drug_stores/controllers/admin_controller.dart';
 import 'package:drug_stores/controllers/form_controller.dart';
 import 'package:drug_stores/controllers/password_controller.dart';
 import 'package:drug_stores/controllers/username_controller.dart';
 import 'package:drug_stores/helper/network.dart';
-import 'package:drug_stores/helper/shared_preferences_helper.dart';
 import 'package:drug_stores/models/failure_response.dart';
 import 'package:drug_stores/screens/admin/home/home.dart';
 
 // ignore: implementation_imports
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get_instance/get_instance.dart';
 import 'package:get/route_manager.dart';
 
 class AdminLoginController extends FormController {
@@ -26,7 +27,7 @@ class AdminLoginController extends FormController {
   Future submitData({required String? username, required String? password}) {
     print('username: ' + username!);
     print('password: ' + password!);
-    return Network(onConnectionSucceed: (body) {
+    return Network(onConnectionSucceed: (body) async {
       print('admin login connection succeed');
       super.onConnectionSucceed();
       Fluttertoast.showToast(
@@ -35,7 +36,7 @@ class AdminLoginController extends FormController {
         gravity: ToastGravity.CENTER,
         timeInSecForIosWeb: 1,
       );
-      SharedPreferencesHelper.set("admin", body['admin'].toString());
+      await Get.find<AdminController>().login(body['admin']);
       Get.offAndToNamed(AdminHomeScreen.routeName);
     }, onMessageReceived: (FailureResponse response) {
       super.onMessageReceived(response.content);

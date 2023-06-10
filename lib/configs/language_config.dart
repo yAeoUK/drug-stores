@@ -28,4 +28,6 @@ class LanguageConfig {
   static final String mustBePositiveNumber = 'form.mustBePositiveNumber';
 
   static final String fullName = 'fullName';
+
+  static final String pharmacyName = 'pharmacy.name';
 }

@@ -6,6 +6,7 @@ class ApiConfig {
   static const _salesman = 'salesman/';
   static const _drugs = 'drugs/';
   static const _orders = 'orders/';
+  static const _pharmacies = 'pharmacies/';
 
   static const adminLogin = _rootUrl + _api_v1 + _admin + "login.php";
   static const salesmanLogin = _rootUrl + _api_v1 + _salesman + "login.php";
@@ -33,4 +34,13 @@ class ApiConfig {
 
   static const salesmanDeleteOrder =
       _rootUrl + _api_v1 + _salesman + _orders + "delete.php";
+
+  static const adminGetPharmacies =
+      _rootUrl + _api_v1 + _admin + _pharmacies + "index.php";
+
+  static const adminDeletePharmacy =
+      _rootUrl + _api_v1 + _admin + _pharmacies + "delete.php";
+
+  static const adminUpsertPharmacy =
+      _rootUrl + _api_v1 + _admin + _pharmacies + "upsert.php";
 }

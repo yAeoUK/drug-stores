@@ -27,7 +27,7 @@ class SalesmanLoginController extends FormController {
   Future submitData({required String? username, required String? password}) {
     print('username: ' + username!);
     print('password: ' + password!);
-    return Network(onConnectionSucceed: (body) {
+    return Network(onConnectionSucceed: (body) async {
       print('salesman login connection succeed');
       super.onConnectionSucceed();
       Fluttertoast.showToast(
@@ -37,7 +37,7 @@ class SalesmanLoginController extends FormController {
         timeInSecForIosWeb: 1,
       );
       SalesmanController salesmanController = Get.find<SalesmanController>();
-      salesmanController.login(body["salesman"]);
+      await salesmanController.login(body["salesman"]);
       Get.offAndToNamed(SalesmanHomeScreen.routeName);
     }, onMessageReceived: (FailureResponse response) {
       super.onMessageReceived(response.content);

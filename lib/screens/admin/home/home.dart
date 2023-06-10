@@ -3,6 +3,7 @@ import 'package:drug_stores/controllers/admin_controller.dart';
 import 'package:drug_stores/dialogues/yes_no_dialogue.dart';
 import 'package:drug_stores/screens/admin/drug_list/drug_list.dart';
 import 'package:drug_stores/screens/admin/order_list/order_list.dart';
+import 'package:drug_stores/screens/admin/pharmacy_list/pharmacy_list.dart';
 import 'package:drug_stores/screens/welcome/welcome.dart';
 
 // ignore: implementation_imports
@@ -58,6 +59,15 @@ class AdminHomeScreen extends GetView {
               ),
             ),
           ),
+          Divider(),
+          Expanded(
+            child: Center(
+              child: ElevatedButton(
+                child: Text('showPharmacies'.tr()),
+                onPressed: () => Get.toNamed(AdminPharmacyList.routeName),
+              ),
+            ),
+          )
         ],
       ),
     );

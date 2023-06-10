@@ -3,6 +3,8 @@ import 'package:drug_stores/screens/admin/drug_list/drug_list.dart';
 import 'package:drug_stores/screens/admin/home/home.dart';
 import 'package:drug_stores/screens/admin/order/order.dart';
 import 'package:drug_stores/screens/admin/order_list/order_list.dart';
+import 'package:drug_stores/screens/admin/pharmacy_form/pharmacy_form.dart';
+import 'package:drug_stores/screens/admin/pharmacy_list/pharmacy_list.dart';
 import 'package:drug_stores/screens/salesman/home/home.dart';
 import 'package:drug_stores/screens/salesman/order_form/order_form.dart';
 import 'package:drug_stores/screens/salesman/order_list/order_list.dart';
@@ -22,5 +24,8 @@ final Map<String, WidgetBuilder> routes = {
   SalesmanHomeScreen.routeName: (context) => SalesmanHomeScreen(),
   SalesmanOrderList.rootName: (context) => SalesmanOrderList(),
   SalesmanOrderForm.rootName: (context) => SalesmanOrderForm(),
-  SalesmanOrderForm.editRouteName: (context) => SalesmanOrderForm()
+  SalesmanOrderForm.editRouteName: (context) => SalesmanOrderForm(),
+  AdminPharmacyForm.addRouteName: (context) => AdminPharmacyForm(),
+  AdminPharmacyForm.editRouteName: (context) => AdminPharmacyForm(),
+  AdminPharmacyList.routeName: (context) => AdminPharmacyList()
 };
