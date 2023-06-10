@@ -54,6 +54,9 @@ dependencies:
   # This package is used to display a toast
   fluttertoast: ^8.0.8
 
+dependency_overrides:
+# This package is used to configure languages changes
+  intl: ^0.18.0
 
 dev_dependencies:
   # This package is used to handle integration tests
