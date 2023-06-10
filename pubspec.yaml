@@ -37,7 +37,7 @@ dependencies:
   get_storage: ^2.0.3
 
   # This package handles localization of the app
-  easy_localization: ^3.0.0
+  easy_localization: ^3.0.2
 
   # This package is used to handle dynamic fields
   flutter_form_bloc: ^0.30.1
