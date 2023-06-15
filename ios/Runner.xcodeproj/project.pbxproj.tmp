@@ -185,7 +185,9 @@
 			<key>files</key>
 			<array/>
 			<key>inputPaths</key>
-			<array/>
+			<array>
+				<string>${TARGET_BUILD_DIR}/${INFOPLIST_PATH}</string>
+			</array>
 			<key>isa</key>
 			<string>PBXShellScriptBuildPhase</string>
 			<key>name</key>
