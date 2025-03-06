@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+1
+version: 1.0.0+3
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -27,36 +27,37 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.3
+  cupertino_icons: ^1.0.6
+
+  # flutter_form_bloc: ^0.31.0
+  flutter_form_bloc:
+    git:
+      url: https://github.com/Cavin6080/form_bloc.git
+      path: packages/flutter_form_bloc
 
   # The following adds GetIt library which handles DI, state management
-  get: ^4.3.8
+  get: ^4.6.6
 
   # The following adds Get Storage library in order to handle data stored as
   # key-value pairs
-  get_storage: ^2.0.3
+  get_storage: ^2.1.1
 
   # This package handles localization of the app
-  easy_localization: ^3.0.2
-
-  # This package is used to handle dynamic fields
-  flutter_form_bloc: ^0.30.1
+  easy_localization: ^3.0.3
 
   # This package is used to get device info
-  device_info_plus: ^9.0.2
+  device_info_plus: ^9.1.1
 
   # This package is used to get package info (version name,version code ...)
-  package_info_plus: ^4.0.2
-
-  # This package is used to know whether a device is rooted or not
-  flutter_security_checker: ^2.0.0
+  package_info_plus: ^5.0.1
 
   # This package is used to display a toast
-  fluttertoast: ^8.0.8
+  fluttertoast: ^8.2.4
 
 dependency_overrides:
 # This package is used to configure languages changes
   intl: ^0.18.0
+  flutter_keyboard_visibility: ^6.0.0
 
 dev_dependencies:
   # This package is used to handle integration tests

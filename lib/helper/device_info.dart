@@ -7,7 +7,6 @@ import 'package:drug_stores/configs/language_config.dart';
 import 'package:drug_stores/controllers/main_controller.dart';
 import 'package:drug_stores/helper/random.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_security_checker/flutter_security_checker.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -56,12 +55,11 @@ class DeviceInfoHelper {
     final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
     final AndroidDeviceInfo androidDeviceInfo =
         await deviceInfoPlugin.androidInfo;
-    final isRooted = await FlutterSecurityChecker.isRooted;
+    // final isRooted = await FlutterSecurityChecker.isRooted;
     final PackageInfo packageInfo = await PackageInfo.fromPlatform();
     _data = {
       buildModel: androidDeviceInfo.model,
       androidAPI: androidDeviceInfo.version.sdkInt.toString(),
-      rooted: isRooted ? '1' : '0',
       isEmulator: androidDeviceInfo.isPhysicalDevice ? '0' : '1',
       appVersionName: packageInfo.version,
       appVersionCode: packageInfo.buildNumber,
